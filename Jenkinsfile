@@ -44,33 +44,33 @@ pipeline {
                 }
             }
         }
-    //     stage ('Deploy') {
-    //         steps {
-    //             node('builder') {
-    //                 script{
-    //                     // sh "scp hello-${BUILD_NUMBER}.tar.gz master"                              
-    //                 }
-    //             }
-    //         }
-    //     }
+        stage ('Deploy') {
+            steps {
+                node('builder') {
+                    dir('/home/jenkins/agent/workspace/hello-flask_master') {
+                        archiveArtifacts artifacts: "hello-${BUILD_NUMBER}.tar.gz", followSymlinks: false, onlyIfSuccessful: true                              
+                    }
+                }
+            }
+        }
     }
-    // post {
-    //     always {
-    //         script{
-    //             sh 'git clean -if'
-    //             cleanWs()
-    //         }
-    //     }
-    //     success {
-    //         script{
-    //             echo "success"
-    //         }
-    //     }         
-    //     failure {
-    //         script{
-    //             echo "1..2.3 failure"
-    //         }
-    //     }
-    // }   
+    post {
+        always {
+            script{
+                sh 'git clean -if'
+                cleanWs()
+            }
+        }
+        success {
+            script{
+                echo "success"
+            }
+        }         
+        failure {
+            script{
+                echo "1..2.3 failure"
+            }
+        }
+    }   
 }
 
