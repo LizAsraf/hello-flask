@@ -36,9 +36,10 @@ pipeline {
                 node('builder') {
                     script{
                         echo "packaging..."
-                        sh "ls"
-                        sh "tar -cvzf hello-${BUILD_NUMBER}.tar.gz application.py requirements.txt"
-                        sh "ls"
+                        sh """
+                            cd ../hello-flask_master
+                            tar -cvzf hello-${BUILD_NUMBER}.tar.gz application.py requirements.txt
+                        """
                     }
                 }
             }
