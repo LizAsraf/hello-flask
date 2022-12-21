@@ -1,5 +1,5 @@
 pipeline {
-    agent builder
+    agent any
     tools {
         git 'Default'
     }
