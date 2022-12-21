@@ -43,16 +43,16 @@ pipeline {
                 }
             }
         }
-        stage ('Deploy') {
-            steps {
-                node('builder') {
-                    script{
-                        // sh "scp hello-${BUILD_NUMBER}.tar.gz master"                              
-                    }
-                }
-            }
-        }
-    }
+    //     stage ('Deploy') {
+    //         steps {
+    //             node('builder') {
+    //                 script{
+    //                     // sh "scp hello-${BUILD_NUMBER}.tar.gz master"                              
+    //                 }
+    //             }
+    //         }
+    //     }
+    // }
     // post {
     //     always {
     //         script{
