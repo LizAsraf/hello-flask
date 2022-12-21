@@ -48,7 +48,7 @@ pipeline {
             steps {
                 node('builder') {
                     dir('/home/jenkins/agent/workspace/hello-flask_master') {
-                        archiveArtifacts artifacts: "hello-${BUILD_NUMBER}.tar.gz", followSymlinks: false, onlyIfSuccessful: true                              
+                        archiveArtifacts artifacts: "hello-${BUILD_NUMBER}.tar.gz", followSymlinks: false, onlyIfSuccessful: true , fingerprint: true                           
                     }
                 }
             }
