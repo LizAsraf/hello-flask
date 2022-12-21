@@ -18,8 +18,8 @@ pipeline {
             }
         }
 
-        node('builder') {
-            stage ('build and unit-test') {           
+        stage ('build and unit-test') {           
+            node('builder') {
                 steps {
                     script{
                         sh """
@@ -29,10 +29,12 @@ pipeline {
                     }
                 }
             }
+        }
 
-            stage ('tag and package') {
+        stage ('tag and package') {
+            node('builder') {
                 steps {
-                script{
+                    script{
                         echo "packaging..."
                         sh "ls"
                         sh "tar -cvzf hello-${BUILD_NUMBER}.tar.gz application.py requirements.txt"
@@ -40,7 +42,9 @@ pipeline {
                     }
                 }
             }
-            stage ('Deploy') {
+        }
+        stage ('Deploy') {
+            node('builder') {
                 steps {
                     script{
                         // sh "scp hello-${BUILD_NUMBER}.tar.gz master"                              
