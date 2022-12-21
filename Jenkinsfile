@@ -24,7 +24,7 @@ pipeline {
                     script{
                         sh """
                             ls
-                            python3 add-build-num.py ${BUILD_NUMBER}
+                            python3.10 add-build-num.py ${BUILD_NUMBER}
                         """
                     }
                 }
