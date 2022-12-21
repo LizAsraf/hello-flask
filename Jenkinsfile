@@ -19,8 +19,8 @@ pipeline {
         }
 
         stage ('build and unit-test') {           
-            node('builder') {
-                steps {
+            steps {
+                node('builder') {
                     script{
                         sh """
                             ls
@@ -31,27 +31,27 @@ pipeline {
             }
         }
 
-        stage ('tag and package') {
-            node('builder') {
-                steps {
-                    script{
-                        echo "packaging..."
-                        sh "ls"
-                        sh "tar -cvzf hello-${BUILD_NUMBER}.tar.gz application.py requirements.txt"
-                        sh "ls"
-                    }
-                }
-            }
-        }
-        stage ('Deploy') {
-            node('builder') {
-                steps {
-                    script{
-                        // sh "scp hello-${BUILD_NUMBER}.tar.gz master"                              
-                    }
-                }
-            }
-        }
+        // stage ('tag and package') {
+        //     node('builder') {
+        //         steps {
+        //             script{
+        //                 echo "packaging..."
+        //                 sh "ls"
+        //                 sh "tar -cvzf hello-${BUILD_NUMBER}.tar.gz application.py requirements.txt"
+        //                 sh "ls"
+        //             }
+        //         }
+        //     }
+        // }
+        // stage ('Deploy') {
+        //     node('builder') {
+        //         steps {
+        //             script{
+        //                 // sh "scp hello-${BUILD_NUMBER}.tar.gz master"                              
+        //             }
+        //         }
+        //     }
+        // }
     }
     post {
         always {
