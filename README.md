@@ -48,4 +48,4 @@ chmod +x run jenkins.sh
 ```
   
 ## 🔗 Infra-As-Code for a ezier deployment
-[![portfolio](https://img.shields.io/badge/infrastructure-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://www.udemy.com/user/ar-shankar/) 
+[![portfolio](https://img.shields.io/badge/infrastructure-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://github.com/LizAsraf/Infra-As-Code-jenkins-master-slave.git) 
